@@ -51,7 +51,7 @@ public class OrderDaoImpl implements OrderDAO{
     @Override
     public String getLastOid() throws Exception {
             Connection connection = db.DBConnection.getInstance().getConnection();
-            String sql = "select orderID from customerOrder order by orderID desc limit 1";
+            String sql = "select orderID from customerOrder order by orderDate desc, orderID desc limit 1";
             PreparedStatement pstm = connection.prepareStatement(sql);
             ResultSet rst = pstm.executeQuery();
             String lOid="OID0";
